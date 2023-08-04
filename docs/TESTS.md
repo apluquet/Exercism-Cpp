@@ -15,10 +15,10 @@ Working through each exercise is a process of:
 
 * Creating the initial build with CMake
 * For each unit test:
-  * Satisfy compile errors to make the test fail.
+  * Satisfy compile errors to make the test run and fail.
   * Implement just enough to make the test pass.
   * Refactor your implementation to enhance readability, reduce duplication, etc.
-  * Uncomment the next test
+  * Activate the next test.
 
 ## Creating the Initial Build with CMake
 
@@ -105,4 +105,35 @@ Please download and install Xcode via the App Store or via [this link][web-xcode
 Errors similar to `The CXX compiler identification is unknown` will likely be resolved by following the [instructions to install GCC][cpp-installation-instructions] or by adding another target in Xcode as per the above paragraph.
 
 [web-xcode-download]: https://apps.apple.com/us/app/xcode/id497799835?mt=12
-[cpp-installation-instructions]: https://exercism.org/docs/tracks/cpp/installation
+[cpp-installation-instructions]:
+    https://exercism.org/docs/tracks/cpp/installation
+
+## Testing an exercise
+
+This track follows the [three rules of test-driven
+development (TDD)](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
+
+Get the first test passing, following those three rules. Start to create
+just enough structure by declaring namespaces, functions, classes, etc., to
+satisfy all (and only) compiler errors, and get the test to run and fail. Then,
+write just enough code to get the test to pass. Once you've done that, you can
+activate the next test.
+
+To do so, go to the `<exercise>_test.h` file. You will find this line, after the
+first test : 
+
+```
+#if defined(EXERCISM_RUN_ALL_TESTS)
+```
+
+This is a [preprocessor
+directive](https://cplusplus.com/doc/tutorial/preprocessor/). All the tests
+between this line and the `#endif` instruction (at the end of the file in our case), which closes this directive, will be
+ignored. To make following test available, move down the line `#if
+defined(EXERCISM_RUN_ALL_TESTS)` of one test.
+
+This may result in compile errors as new constructs may be invoked that you
+haven't yet declared or defined. Again, fix the compile errors minimally to get
+a failing test, then change the code minimally to pass the test, refactor your
+implementation for readability and expressiveness and then go on to the next
+test.
