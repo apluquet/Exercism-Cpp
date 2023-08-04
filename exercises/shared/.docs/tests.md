@@ -5,13 +5,13 @@ Detailed instructions on how to do this can be found on the [Running the Tests][
 
 ## Passing the Tests
 
-Get the first test passing, following the [three rules of test-driven
-development (TDD)][three-laws-of-tdd].
+Get the first test passing, following the [three rules of test-driven development (TDD)][three-laws-of-tdd].
 Start to create just enough structure by declaring namespaces, functions, lasses, etc., to satisfy all (and only) compiler errors, and get the test to run and fail.
 Then, write just enough code to get the test to pass.
 Once you've done that, you can activate the next test.
 
-To do so, go to the `<exercise>_test.h` file. You will find this line, after the first test :
+To do so, go to the `<exercise>_test.h` file.
+You will find this line, after the first test :
 
 ```C++
 #if defined(EXERCISM_RUN_ALL_TESTS)
